@@ -16,6 +16,7 @@ namespace BulkyBook.DataAccess.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -112,6 +113,18 @@ namespace BulkyBook.DataAccess.Data
                     ImageUrl = ""
                 }
 
+                );
+            modelBuilder.Entity<Company>().HasData(
+                new Company
+                {
+                    Id = 1,
+                    Name = "AB&J Engineering Works",
+                    StreetAddress = "Purok Mabuhay, Tubod",
+                    City = "Iligan City",
+                    State = "Lanao del Norte",
+                    PostalCode = "9200",
+                    PhoneNumber = "09171669528"
+                }
                 );
         }
     }
